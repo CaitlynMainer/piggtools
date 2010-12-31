@@ -1,0 +1,15 @@
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\DdsSquish\bin\Release\DdsSquish.dll
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\DdsSquish\bin\Release\DdsSquish.pdb
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\DdsSquish\obj\Release\ResolveAssemblyReference.cache
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\DdsSquish\obj\Release\DdsSquish.dll
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\DdsSquish\obj\Release\DdsSquish.pdb
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\DdsSquish\bin\Debug\DdsSquish.dll
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\DdsSquish\bin\Debug\DdsSquish.pdb
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\DdsSquish\obj\Debug\ResolveAssemblyReference.cache
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\DdsSquish\obj\Debug\DdsSquish.dll
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\DdsSquish\obj\Debug\DdsSquish.pdb
+E:\Docs\Development\svn\piggtools\DdsSquish\bin\Debug\DdsSquish.dll
+E:\Docs\Development\svn\piggtools\DdsSquish\bin\Debug\DdsSquish.pdb
+E:\Docs\Development\svn\piggtools\DdsSquish\obj\Debug\ResolveAssemblyReference.cache
+E:\Docs\Development\svn\piggtools\DdsSquish\obj\Debug\DdsSquish.dll
+E:\Docs\Development\svn\piggtools\DdsSquish\obj\Debug\DdsSquish.pdb

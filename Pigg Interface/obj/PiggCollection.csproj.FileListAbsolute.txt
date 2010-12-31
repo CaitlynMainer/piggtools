@@ -1,0 +1,5 @@
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\PiggCollection\obj\Debug\ResolveAssemblyReference.cache
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\PiggCollection\bin\Debug\PiggCollection.dll
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\PiggCollection\bin\Debug\PiggCollection.pdb
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\PiggCollection\obj\Debug\PiggCollection.dll
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\PiggCollection\obj\Debug\PiggCollection.pdb

@@ -1,0 +1,5 @@
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\DdsSquish\obj\Release\ResolveAssemblyReference.cache
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\DdsSquish\bin\Release\DdsSquish.dll
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\DdsSquish\bin\Release\DdsSquish.pdb
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\DdsSquish\obj\Release\DdsSquish.dll
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\DdsSquish\obj\Release\DdsSquish.pdb

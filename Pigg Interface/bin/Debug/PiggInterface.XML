@@ -1,0 +1,1142 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PiggInterface</name>
+    </assembly>
+    <members>
+        <member name="T:ParagonForge.PiggInterface.PiggTextureHeader">
+            <summary>
+            Encapulates the header at the beginning of all texture files.
+            </summary>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggTextureHeader.#ctor(System.IO.BinaryReader)">
+            <summary>
+            Creates a new PiggTextureHeader object.
+            </summary>
+            <param name="Reader"><typeparamref name="BinaryReader"/> object from
+            which to read the texture header object.</param>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggTextureHeader.Read(System.IO.BinaryReader)">
+            <summary>
+            Reads a texture header structure.
+            </summary>
+            <param name="Reader"><typeparamref name="BinaryReader"/> object from
+            which to read the texture header.</param>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggTextureHeader.Size">
+            <summary>
+            Size of the physical texture header structure.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggTextureHeader.Marker">
+            <summary>
+            Marker to ensure data file integrity.  (Currently always "\0TX2")
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggTextureHeader.DataSize">
+            <summary>
+            Size of the image data.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggTextureHeader.Width">
+            <summary>
+            Width of the image.  Note that this might be smaller than the width
+            of the image data if the image is a DDS-formatted file.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggTextureHeader.Height">
+            <summary>
+            Height of the image.  Note that this might be smaller than the height
+            of the image data if the image is a DDS-formatted file.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggTextureHeader.ImageSize">
+            <summary>
+            Size of the image.  Note that this might be smaller than the size
+            of the image data if the image is a DDS-formatted file.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggTextureHeader.Unknown">
+            <summary>
+            Unknonwn fields.  Might be flags or markers.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggTextureHeader.Filename">
+            <summary>
+            Filename of encapsulated file within texture.
+            </summary>
+        </member>
+        <member name="T:ParagonForge.PiggInterface.PiggTexture">
+            <summary>
+            Encapsulates a texture file within the Pigg directory.
+            </summary>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggTexture.#ctor">
+            <summary>
+            Create a new PiggTexture object.
+            </summary>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggTexture.#ctor(ParagonForge.PiggInterface.PiggLeafInfo)">
+            <summary>
+            Create a new PiggTexture object.
+            </summary>
+            <param name="LeafInfo"><typeparamref name="PiggLeafInfo"/> object from
+            which to read the PiggTextureHeader object.</param>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggTexture.Extract(System.IO.Stream,ParagonForge.PiggInterface.TextureExtractType)">
+            <summary>
+            Extracts a PiggTexture object to the provided stream.
+            </summary>
+            <param name="output">Stream to which to write the texture.</param>
+            <param name="type">How the texture is to be extracted.</param>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggTexture.ExtractOriginalImage(System.IO.Stream)">
+            <summary>
+            Extracts the original image to a stream.
+            </summary>
+            <param name="output">A binary writer to the stream.</param>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggTexture.LoadHeader">
+            <summary>
+            Loads the PiggTextureHeader structure from the specified texture
+            file.  Note that this function must be called before LoadImage().
+            </summary>
+            <returns>An initialized PiggTextureHeader object.</returns>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggTexture.LoadSource">
+            <summary>
+            Loads the source data from the pigg file.
+            </summary>
+            <returns>A byte array containing the source data.</returns>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggTexture.LoadImage">
+            <summary>
+            Loads an image from the specified texture file.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggTexture.LeafInfo">
+            <summary>
+            PiggLeaf object that is the back-end data structure that describes
+            this PiggTexture object.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggTexture.Source">
+            <summary>
+            Source bytes of the texture object.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggTexture.Header">
+            <summary>
+            Header of PiggTexture object.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggTexture.Width">
+            <summary>
+            Width of the image.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggTexture.Height">
+            <summary>
+            Height of the image.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggTexture.Image">
+            <summary>
+            A <typeparamref name="Bitmap"/> object representing the image data.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggTexture.Filename">
+            <summary>
+            Original image filename.
+            </summary>
+        </member>
+        <member name="T:ParagonForge.PiggInterface.AddFileResult">
+            <summary>
+            Return values used to indicate the status of trying to add a file to
+            the collection
+            </summary>
+        </member>
+        <member name="F:ParagonForge.PiggInterface.AddFileResult.OK">
+            <summary>File was successfully added.</summary>
+        </member>
+        <member name="F:ParagonForge.PiggInterface.AddFileResult.FileExists">
+            <summary>File was already in the collection and did not need to be
+            added again.</summary>
+        </member>
+        <member name="F:ParagonForge.PiggInterface.AddFileResult.InvalidFile">
+            <summary>File was unable to be added.</summary>
+        </member>
+        <member name="T:ParagonForge.PiggInterface.PiggFileCollection">
+            <summary>
+            Represents a collection of pigg files
+            </summary>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggFileCollection.#ctor">
+            <summary>
+            Creates a new PiggCollection object with all properties set to null or
+            default values
+            </summary>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggFileCollection.#ctor(System.String[])">
+            <summary>
+            Creates a new PiggCollection object based on the DirectoryName top
+            level directory
+            </summary>
+            <param name="Filenames">Files or directories to add to the pigg file
+            collection.</param>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggFileCollection.Initialize">
+            <summary>
+            Initializes a pigg file collection.
+            </summary>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggFileCollection.AddFile(System.String)">
+            <summary>
+            Adds a file to the pigg file collection.
+            </summary>
+            <param name="FileName">The name of the pigg file to add to the
+            collection.</param>
+            <returns>An AddFileResult that indicates the result of trying to add
+            the file to the pigg file collection.</returns>
+            <remarks>The collection of pigg files is contained in a Dictionary
+            object.  This is so that there will be no duplicate files in the
+            collection.  Using this version of the AddFile function, if one tries
+            to add a file that already exists to the collection, it will be
+            overwritten by default.  If this is not desired, use the version of
+            AddFile that takes the second Overwrite argument.</remarks>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggFileCollection.AddFile(System.String,System.Boolean)">
+            <summary>
+            Adds a file to the pigg file collection.
+            </summary>
+            <param name="FileName">The name of the pigg file to add to the
+            collection.</param>
+            <param name="Overwrite">Whether to overwrite the file if it already
+            exists within the collection.</param>
+            <returns>And AddFileResult that indicates the result of trying to add
+            the file to the pigg file collection.</returns>
+            <remarks>The collection of pigg files is contained in a Dictionary
+            object.  This is so that there will be no duplicate files in the
+            collection.  Using this version of the AddFile function, one can
+            specify whether or not it is desired to overwrite the file if it is
+            already in the collection.  Either way, if the file exists,
+            AddFileResult.FileExists will be returned.</remarks>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggFileCollection.AddDirectory(System.String,System.IO.SearchOption)">
+            <summary>
+            Adds an entire directory containing pigg files to the pigg file
+            collection.
+            </summary>
+            <param name="PathName">Path name of the directory to add.</param>
+            <param name="Include">How the directory is to be searched.</param>
+            <returns>The number of pigg files found and added.</returns>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggFileCollection.FileExists(System.String)">
+            <summary>
+            Returns whether the given filename exists within the pigg file
+            collection.
+            </summary>
+            <param name="FileName">File name of which the existence is tested.
+            </param>
+            <returns>True of the file exists within the pigg file collection,
+            false if it does not.</returns>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggFileCollection.Files">
+            <summary>
+            List of pigg file objects contained in the pigg file collection.
+            </summary>
+        </member>
+        <member name="T:ParagonForge.PiggInterface.PiggFileMarker">
+            <summary>
+            "Magic numbers" that, if not encountered, are a sign of a pigg file
+            error.
+            </summary>
+        </member>
+        <member name="F:ParagonForge.PiggInterface.PiggFileMarker.Header0">
+            <summary>Marker to ensure file integrity.</summary>
+        </member>
+        <member name="F:ParagonForge.PiggInterface.PiggFileMarker.Header1">
+            <summary>Unknown marker or flags.</summary>
+        </member>
+        <member name="F:ParagonForge.PiggInterface.PiggFileMarker.Header2">
+            <summary>Unknown marker or flags.</summary>
+        </member>
+        <member name="F:ParagonForge.PiggInterface.PiggFileMarker.DirectoryEntry">
+            <summary>Marker to ensure file integrity.</summary>
+        </member>
+        <member name="F:ParagonForge.PiggInterface.PiggFileMarker.StringTable">
+            <summary>Marker to ensure file integrity.</summary>
+        </member>
+        <member name="F:ParagonForge.PiggInterface.PiggFileMarker.SecondaryTable">
+            <summary>Marker to ensure file integrity.</summary>
+        </member>
+        <member name="T:ParagonForge.PiggInterface.PiggFileHeader">
+            <summary>
+            Encapulates the header at the beginning of all Pigg files.
+            </summary>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggFileHeader.#ctor">
+            <summary>
+            Creates a new PiggHeader object.
+            </summary>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggFileHeader.#ctor(System.IO.BinaryReader)">
+            <summary>
+            Creates a new PiggHeader object.
+            </summary>
+            <param name="Reader"><typeparamref name="BinaryReader"/> object from
+            which to read the PiggHeader object.</param>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggFileHeader.ToString">
+            <summary>
+            Returns a <typeparamref name="String"/> that represents the
+            current <typeparamref name="PiggFileHeader"/> object.
+            </summary>
+            <returns>A <typeparamref name="String"/> that represents the
+            current PiggFileHeader object.</returns>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggFileHeader.ReadHeader(System.IO.BinaryReader)">
+            <summary>
+            Reads a Pigg file header.
+            </summary>
+            <param name="Reader"><typeparamref name="BinaryReader"/> object from
+            which to read the PiggHeader object.</param>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggFileHeader.Size">
+            <summary>
+            Size of the physical PiggHeader structure within a Pigg file.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggFileHeader.Marker">
+            <summary>
+            Marker to ensure data file integrity.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggFileHeader.Unknown">
+            <summary>
+            Unknown flags or markers.  Currently always 0x000200002 and 00300010.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggFileHeader.DirectoryEntries">
+            <summary>
+            Number of directory entries the Pigg file contains.
+            </summary>
+        </member>
+        <member name="T:ParagonForge.PiggInterface.PiggFileStringTable">
+            <summary>
+            Encapsulates the string table within a Pigg file.
+            </summary>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggFileStringTable.Read(System.IO.BinaryReader)">
+            <summary>
+            Reads a Pigg file string table.
+            </summary>
+            <param name="Reader"><typeparamref name="BinaryReader"/> object from
+            which to read the PiggHeader object.</param>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggFileStringTable.Item(System.Int32)">
+            <summary>
+            Gets or sets a string from the string table by index.
+            </summary>
+            <param name="Index">Index of the string.</param>
+            <returns>The string within the string table.</returns>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggFileStringTable.Strings">
+            <summary>
+            List of strings in string table.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggFileStringTable.Marker">
+            <summary>
+            Marker to ensure data file integrity.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggFileStringTable.Count">
+            <summary>
+            Number of strings in string table.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggFileStringTable.Size">
+            <summary>
+            Size of the physical PiggHeader structure within a Pigg file.
+            </summary>
+        </member>
+        <member name="T:ParagonForge.PiggInterface.PiggFileDirectoryEntry">
+            <summary>
+            Represents a pigg file directory entry object.  These store information
+            about individual directory entries.
+            </summary>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggFileDirectoryEntry.#ctor(System.IO.BinaryReader)">
+            <summary>
+            Create a directory entry object and read it from the pigg file.
+            </summary>
+            <param name="Reader">A binary reader which is used to read the
+            directory entry object from the pigg file.</param>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggFileDirectoryEntry.Read(System.IO.BinaryReader)">
+            <summary>
+            Reads a directory entry information structure.
+            </summary>
+            <param name="Reader"></param>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggFileDirectoryEntry.Marker">
+            <summary>
+            A "magic number" used to validate that this is in fact a directory
+            entry that is being read.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggFileDirectoryEntry.StringIndex">
+            <summary>
+            Index of string within string table.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggFileDirectoryEntry.UncompressedSize">
+            <summary>
+            Size of uncompressed file.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggFileDirectoryEntry.CompressedSize">
+            <summary>
+            Size of compressed file within Pigg file.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggFileDirectoryEntry.Offset">
+            <summary>
+            Offset of file within Pigg file.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggFileDirectoryEntry.SecondaryIndex">
+            <summary>
+            Index of secondary header within Pigg File.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggFileDirectoryEntry.TimestampEpoch">
+            <summary>
+            Timestamp of file, measured in seconds since midnight January 1, 1970
+            UTC.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggFileDirectoryEntry.Timestamp">
+            <summary>
+            Timestamp of file, as a <typeparamref name="DateTime"/> object.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggFileDirectoryEntry.MD5">
+            <summary>
+            MD5 checksum of file to verify integrity.
+            </summary>
+        </member>
+        <member name="T:ParagonForge.PiggInterface.PiggFileSecondaryEntry">
+            <summary>
+            Represents a pigg file secondary directory entry object.  These store
+            information about images and don't apply to non-image files.
+            </summary>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggFileSecondaryEntry.#ctor">
+            <summary>
+            Create a new PiggFileSecondaryEntry object.
+            </summary>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggFileSecondaryEntry.Read(System.IO.BinaryReader)">
+            <summary>
+            Reads a secondary directory entry information structure.
+            </summary>
+            <param name="Reader">Binary reader from which the information should
+            be read.</param>
+        </member>
+        <member name="T:ParagonForge.PiggInterface.PiggFile">
+            <summary>
+            Encapsulates the functionality of a physical pigg file (i.e. a file
+            with the .pigg extension that is a compressed directory of other files).
+            </summary>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggFile.#ctor">
+            <summary>
+            Create a new pigg file object.
+            </summary>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggFile.#ctor(System.String)">
+            <summary>
+            Create a new pigg file object.
+            </summary>
+            <param name="Filename">Name of the file used to initialize the pigg
+            file object.</param>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggFile.#ctor(System.String,ParagonForge.PiggInterface.PiggNode)">
+            <summary>
+            Create a new pigg file object.
+            </summary>
+            <param name="Filename">Name of the file used to initialize the pigg
+            file object.</param>
+            <param name="RootNode">Root node to which parsed directory entries
+            will be added.</param>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggFile.Initialize(System.String,ParagonForge.PiggInterface.PiggNode)">
+            <summary>
+            Initialize a pigg file object.
+            </summary>
+            <param name="Filename">Name of file used to initialize pigg file
+            object.</param>
+            <param name="RootNode">Root node of the Pigg tree.</param>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggFile.ReadPiggFile">
+            <summary>
+            Reads and populates this object from a pigg data file.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggFile.FullPath">
+            <summary>
+            The full path of the pigg file.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggFile.DirectoryEntries">
+            <summary>
+            The list of DirectoryEntry objects contained within this pigg file.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggFile.PiggFileInfo">
+            <summary>
+            A FileInfo structure representing the full path of the pigg file.
+            </summary>
+            <remarks>This property can throw an application exception</remarks>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggFile.RootNode">
+            <summary>
+            Fetches a list of root nodes contained within the pigg file.
+            </summary>
+        </member>
+        <member name="T:ParagonForge.PiggInterface.PiggStream">
+            <summary>
+            Facilitates reading from and writing to Pigg files.
+            </summary>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggStream.#ctor(ParagonForge.PiggInterface.PiggLeafInfo)">
+            <summary>
+            Create a new PiggStream object.
+            </summary>
+            <param name="LeafInfo">PiggLeafInfo object that describes the file
+            that will be read or written.</param>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggStream.Flush">
+            <summary>
+            Clears all buffers for this stream and causes any buffered data to be
+            written to the underlying device.
+            </summary>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggStream.Seek(System.Int64,System.IO.SeekOrigin)">
+            <summary>
+            Sets the current position of this stream to the given value.
+            </summary>
+            <param name="offset"></param>
+            <param name="origin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggStream.CacheRead(System.Int32)">
+            <summary>
+            Reads data into the back-end buffer.
+            </summary>
+            <param name="count">Number of bytes to read into the buffer.</param>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggStream.SetLength(System.Int64)">
+            <summary>
+            Sets the length of this stream to the given value.
+            </summary>
+            <param name="value">Lenght</param>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggStream.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Reads a block of bytes from the stream and writes the data in a given
+            buffer.
+            </summary>
+            <param name="buffer">When this method returns, contains the specified
+            byte array with the values between offset and (offset + count - 1)
+            replaced by the bytes read from the current source.</param>
+            <param name="offset">The byte offset in array at which to begin
+            reading.</param>
+            <param name="count">The maximum number of bytes to read.</param>
+            <returns>The total number of bytes read into the buffer. This might be
+            less than the number of bytes requested if that number of bytes are
+            not currently available, or zero if the end of the stream is reached.
+            </returns>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggStream.ReadByte">
+            <summary>
+            Reads a byte from the stream and advances the position within the
+            stream by one byte, or returns -1 if at the end of the stream.
+            </summary>
+            <returns>The unsigned byte cast to an Int32, or -1 if at the end of
+            the stream.</returns>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggStream.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Writes a block of bytes to this stream using data from a buffer.
+            </summary>
+            <param name="buffer">The buffer containing data to write to the
+            stream.</param>
+            <param name="offset">The zero-based byte offset in array at which to
+            begin copying bytes to the current stream.</param>
+            <param name="count">The maximum number of bytes to be written to the
+            current stream.</param>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggStream.Close">
+            <summary>
+            Closes the current stream and releases any resources (such as sockets
+            and file handles) associated with the current stream.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggStream.LeafInfo">
+            <summary>
+            PiggLeafInfo object that describes the file that will be read or
+            written.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggStream.FileSource">
+            <summary>
+            Source file of the pigg stream.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggStream.DeflateSource">
+            <summary>
+            Source deflation stream of the pigg stream.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggStream.StreamPosition">
+            <summary>
+            Internal reference to where we are within the stream.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggStream.Cache">
+            <summary>
+            Cached raw data backing the PiggStream object.  Used for random access
+            seeking.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggStream.CacheBytesRead">
+            <summary>
+            The total number of bytes that have been read into the back-end raw
+            data array.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggStream.CachePosition">
+            <summary>
+            Position in the back-end source stream.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggStream.CanRead">
+            <summary>
+            Gets a value indicating whether the current stream supports reading.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggStream.CanSeek">
+            <summary>
+            Gets a value indicating whether the current stream supports seeking.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggStream.CanWrite">
+            <summary>
+            Gets a value indicating whether the current stream supports writing.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggStream.Length">
+            <summary>
+            Gets the length in bytes of the stream.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggStream.Position">
+            <summary>
+            Gets or sets the current position of this stream.
+            </summary>
+        </member>
+        <member name="T:ParagonForge.PiggInterface.PiggUtilities">
+            <summary>
+            Represents various utilities used to work with pigg files and objects.
+            </summary>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggUtilities.EpochToTicks(System.Int64)">
+            <summary>
+            Converts a Unix epoch time (time since midnight, January 1, 1970 UTC)
+            to a DateTime ticks value (hundreds of nanoseconds since midnight,
+            January 1, 0001).
+            </summary>
+            <param name="Epoch">Unix epoch time to convert.</param>
+            <returns>Time converted to ticks since midnight, January 1,
+            0001.</returns>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggUtilities.TicksToEpoch(System.Int64)">
+            <summary>
+            Converts a DateTime ticks value (hundreds of nanoseconds since
+            midnight, January 1, 0001) to a Unix epoch time (time since midnight,
+            January 1, 1970 UTC).
+            </summary>
+            <param name="Ticks">DateTime ticks value to convert.</param>
+            <returns>Time converted to seconds since midnight, January 1,
+            1970.</returns>
+        </member>
+        <member name="T:ParagonForge.PiggInterface.PiggNode">
+            <summary>
+            Encapsulates the functionality of a Pigg directory in the hierarchical
+            naming structure of Pigg files.
+            </summary>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggNode.#ctor">
+            <summary>
+            Initializes a new PiggDirectory object with a blank name and no parent
+            directory.
+            </summary>
+            <remarks>Creates a root directory, though the parent can be set later
+            using the Parent property.</remarks>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggNode.#ctor(System.String)">
+            <summary>
+            Creates and initializes a new PiggDirectory object with the given name
+            and no parent directory.
+            </summary>
+            <remarks>Creates a root directory, though the parent can be set later
+            using the Parent property.</remarks>
+            <param name="Name">Name of the directory object.</param>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggNode.#ctor(System.String,ParagonForge.PiggInterface.PiggNode)">
+            <summary>
+            Creates and initializes a new PiggDirectory object with the given name
+            and parent directory.
+            </summary>
+            <param name="Name">Name of the directory object.</param>
+            <param name="Parent">Parent directory of the directory object.</param>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggNode.Initialize(System.String,ParagonForge.PiggInterface.PiggNode,System.Int32)">
+            <summary>
+            Initializes a new PiggDirectory object with the given name and parent
+            directory.
+            </summary>
+            <param name="Name">Name of PiggNode object.</param>
+            <param name="Parent">Parent of the PiggNode object.</param>
+            <param name="Level">Depth of node in PiggNode tree.</param>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggNode.ToString">
+            <summary>
+            Provides a human-readable path of this PiggNode object.
+            </summary>
+            <returns>The full path of this PiggNode object.</returns>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggNode.Dump">
+            <summary>
+            Provides a human-readable tree graph of this node and all of its
+            subnodes.
+            </summary>
+            <returns>The entire tree structure of this node.</returns>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggNode.AddLeaf(ParagonForge.PiggInterface.PiggLeaf)">
+            <summary>
+            Adds a PiggLeaf object to the tree.
+            </summary>
+            <param name="Leaf">Leaf to add to the PiggNode tree.</param>
+            <remarks>If you try to add two files with the same name, only the
+            second one will be set and the first one tossed.  Name collisions
+            might be an error, but I'm not sure, so for now, I'll give it the
+            benefit of a doubt and assume that they're legal.</remarks>
+            <returns>The PiggLeaf object added.</returns>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggNode.AddLeaf(ParagonForge.PiggInterface.PiggLeaf,System.String)">
+            <summary>
+            Adds a PiggLeaf object to the tree at the specified path.
+            </summary>
+            <param name="Leaf">Leaf to add to the PiggNode tree.</param>
+            <param name="Path">Path to the PiggNode object to which the PiggLeaf
+            should be added.</param>
+            <returns>The PiggLeaf object added.</returns>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggNode.AddNode(ParagonForge.PiggInterface.PiggNode)">
+            <summary>
+            Adds a Pigg node as a subnode of this node.
+            </summary>
+            <param name="Node">Pigg node to add as a subnode to this node.  If a
+            node already exists with the name of the node, the existing node is
+            returned instead.</param>
+            <returns>The Pigg node added.</returns>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggNode.AddNode(System.String)">
+            <summary>
+            Adds a Pigg node as a subnode of this node.
+            </summary>
+            <param name="Name">Name of the Pigg node to add as a subnode to this
+            node.  If a node already exists with the name of the node, the
+            existing node is returned.</param>
+            <returns>The Pigg node added.</returns>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggNode.Subnode(System.String)">
+            <summary>
+            Creates a new subnode of this node.
+            </summary>
+            <param name="Name">The name of the new subnode.  If the subnode
+            already exists, it is not overwritten.</param>
+            <returns>The new subnode, or if the subnode already existed, the
+            existing subnode.</returns>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggNode.AddPath(System.String)">
+            <summary>
+            Creates a PiggNode path structure, ensuring that all elements along
+            the path exist.
+            </summary>
+            <param name="Path">Path structure to create.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggNode.AddCapacity(System.Int64)">
+            <summary>
+            Adds to the amount of storage this node is holding.
+            </summary>
+            <param name="Bytes">Number of bytes to add to storage.</param>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggNode.Extract(System.String,ParagonForge.PiggInterface.TextureExtractType,ParagonForge.PiggInterface.NodeExtractType,System.Boolean,ParagonForge.PiggInterface.PiggNode.ExtractProgress)">
+            <summary>
+            Extract a node and all of its subnodes and children.
+            </summary>
+            <param name="RootPath">Path to which to extract node.</param>
+            <param name="TextureType">How textures are to be extracted.</param>
+            <param name="NodeType">Whether to recreate the full root path.</param>
+            <param name="OnlyTextures">Indicates whether only textures or to be
+            extracted or all files.</param>
+            <param name="Callback">Callback function to update the caller that a
+            leaf is about to be extracted.</param>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggNode.Name">
+            <summary>
+            The name of the pigg directory
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggNode.Parent">
+            <summary>
+            Parent directory of this Pigg File.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggNode.Level">
+            <summary>
+            Level of node within tree structure.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggNode.IsRoot">
+            <summary>
+            Returns true if this node is a root node, false if it is a subnode.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggNode.Root">
+            <summary>
+            Root PiggNode for this PiggNode tree structure.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggNode.FullPath">
+            <summary>
+            Full path of the node, using the directory separator character
+            (/ on Unix/Max OS machines, \ on Windows) as separators.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggNode.Leafs">
+            <summary>
+            An array of pigg files contained in this directory node.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggNode.LeafMap">
+            <summary>
+            The back-end dictionary of leaf items.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggNode.Subnodes">
+            <summary>
+            An array of pigg subnodes contained in this directory node.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggNode.SubnodeMap">
+            <summary>
+            The back-end dictionary of subnode items.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggNode.NodeNames">
+            <summary>
+            Array of strings of all subnode elements.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggNode.PiggFileRefs">
+            <summary>
+            An array of pigg file references contained in this directory node.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggNode.FilerefMap">
+            <summary>
+            The back-end dictionary of PiggFile ref items.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggNode.Capacity">
+            <summary>
+            Number of bytes used by this node's immediate children.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggNode.TotalCapacity">
+            <summary>
+            Number of bytes used by all of this node's descendants.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggNode.TotalLeafCount">
+            <summary>
+            Number of leafs in all of this node's descendants.
+            </summary>
+        </member>
+        <member name="T:ParagonForge.PiggInterface.PiggNode.ExtractProgress">
+            <summary>
+            Called during a node extraction to let the caller know which leaf is
+            being updated.
+            </summary>
+            <param name="Target">The leaf that is about to be extracted.</param>
+        </member>
+        <member name="T:ParagonForge.PiggInterface.PiggOgg">
+            <summary>
+            Encapsulates a file within a Pigg directory that is an Ogg file.
+            </summary>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggOgg.#ctor">
+            <summary>
+            Initialize an instance of a PiggOgg object.
+            </summary>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggOgg.#ctor(ParagonForge.PiggInterface.PiggLeaf)">
+            <summary>
+            Initialize an instance of a PiggOgg object.
+            </summary>
+            <param name="Leaf">PiggLeaf object to use as the source for the Ogg
+            stream.</param>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggOgg.#ctor(ParagonForge.PiggInterface.PiggLeaf,System.Byte[])">
+            <summary>
+            Initialize an instance of a PiggOgg object.
+            </summary>
+            <param name="Leaf">PiggLeaf object to use as the source for the Ogg
+            stream.</param>
+            <param name="SoundFile"></param>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggOgg.WAVHeader(System.Int32)">
+            <summary>
+            Creates a WAV file header compatible with the Ogg decoder inside a
+            byte array and returns it.
+            </summary>
+            <param name="DataSize">Size of the raw data.</param>
+            <returns>Byte array containing the WAV file header.</returns>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggOgg.SoundFile">
+            <summary>
+            Returns a byte array of the Ogg file decoded into WAV file format.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggOgg.Leaf">
+            <summary>
+            PiggLeaf object that is the source of the Ogg stream.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggOgg.Duration">
+            <summary>
+            Length of sound.
+            </summary>
+        </member>
+        <member name="T:ParagonForge.PiggInterface.PiggLeafInfo">
+            <summary>
+            Correlates a PiggLeaf object to a physical file or files.
+            </summary>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggLeafInfo.#ctor">
+            <summary>
+            Creates a new PiggLeafInfo object.
+            </summary>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggLeafInfo.#ctor(ParagonForge.PiggInterface.PiggFile)">
+            <summary>
+            Creates a new PiggLeafInfo object.
+            </summary>
+            <param name="Base">Base PiggFile object that contains the file
+            described by this info object.</param>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggLeafInfo.#ctor(ParagonForge.PiggInterface.PiggFile,ParagonForge.PiggInterface.PiggFileDirectoryEntry)">
+            <summary>
+            Creates a new PiggLeafInfo object.
+            </summary>
+            <param name="Base">Base PiggFile object that contains the file
+            described by this info object.</param>
+            <param name="Entry">PiggFileDirectoryEntry object that contains
+            descriptive information for this info object.</param>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggLeafInfo.ToString">
+            <summary>
+            The full path of the Pigg file that references this info object.
+            </summary>
+            <returns>The full path of the Pigg file that references this info
+            object.</returns>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggLeafInfo.Extract(System.IO.Stream)">
+            <summary>
+            Extracts an embedded file using the information contained within the
+            PiggLeafInfo structure.
+            </summary>
+            <param name="output">Stream to which file information is saved.
+            </param>
+            <returns>The total number of bytes written to the stream.</returns>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggLeafInfo.File">
+            <summary>
+            PiggFile object to which this LeafInfo structure refers.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggLeafInfo.UncompressedSize">
+            <summary>
+            Size of the uncompressed file.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggLeafInfo.CompressedSize">
+            <summary>
+            Size of the compressed file within the Pigg file.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggLeafInfo.Offset">
+            <summary>
+            Offset of the file within the Pigg file.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggLeafInfo.SecondaryIndex">
+            <summary>
+            Index of secondary data structure.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggLeafInfo.Timestamp">
+            <summary>
+            Date and time file was created.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggLeafInfo.MD5">
+            <summary>
+            MD5 checksum of file.
+            </summary>
+        </member>
+        <member name="T:ParagonForge.PiggInterface.PiggLeaf">
+            <summary>
+            Encapsulates the functionality of a pigg leaf node, which represents
+            a stored and compressed file within a pig file.
+            </summary>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggLeaf.#ctor">
+            <summary>
+            Creates a default PiggLeaf object.  Properties must be set manually
+            after creating the object.
+            </summary>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggLeaf.#ctor(System.String)">
+            <summary>
+            Creates a root PiggLeaf object with the specified name.
+            </summary>
+            <param name="Name">Name of the PiggLeaf object.</param>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggLeaf.#ctor(System.String,ParagonForge.PiggInterface.PiggNode)">
+            <summary>
+            Creates a PiggLeaf that is a subnode of a PiggNode object.
+            </summary>
+            <param name="Name">Name of the PiggLeaf object.</param>
+            <param name="Parent">PiggNode that is the parent node of this PiggLeaf
+            object.</param>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggLeaf.Initialize(System.String,ParagonForge.PiggInterface.PiggNode)">
+            <summary>
+            Initializes a directory node with the given parameters.
+            </summary>
+            <param name="Name">Name of the directory node.</param>
+            <param name="Parent">Parent node of the directory.  If the node is a
+            root node, Parent returns null.</param>
+            <remarks>By default, Initialize sets all members to some reasonable
+            default value, such as zero.  For the DateTime timestamp, it is set
+            to the minimum DateTime available (midnight Jan. 1, 1 AD).  Non-
+            default values should be set after the Initialize function is called.
+            </remarks>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggLeaf.CompareTo(System.Object)">
+            <summary>
+            Compares this instance with another object.
+            </summary>
+            <param name="OtherObject"></param>
+            <returns></returns>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggLeaf.ToString">
+            <summary>
+            Return the name of the directory node.
+            </summary>
+            <returns>The name of the directory node.</returns>
+        </member>
+        <member name="M:ParagonForge.PiggInterface.PiggLeaf.AddLeaf(ParagonForge.PiggInterface.PiggNode,System.String)">
+            <summary>
+            Add a leaf as a child to the PiggNode tree.
+            </summary>
+            <param name="Parent">Root of the PiggNode tree.</param>
+            <param name="FullPath">Full path name of the PiggLeaf object.</param>
+            <returns></returns>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggLeaf.Name">
+            <summary>
+            The name of the file
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggLeaf.Parent">
+            <summary>
+            Parent directory of this Pigg File.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggLeaf.PiggReferences">
+            <summary>
+            An array of Pigg leaf info objects that contain information required
+            to access this leaf within the physical Pigg file.  Normally, this
+            should always contain a single file, but in theory, it could contain
+            multiple references if the file is contained in more than one Pigg
+            file.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.PiggInterface.PiggLeaf.IsTexture">
+            <summary>
+            Indicates whether or not 
+            </summary>
+        </member>
+        <member name="T:ParagonForge.PiggInterface.TextureExtractType">
+            <summary>
+            Indicates how to extract a texture.  TextureExtractTypes can be combined
+            to generate multiple files of different types.  For example,
+            TextureExtractType.Png | TextureExtractType.Texture will extract both a
+            texture file and a corresponding PNG file.
+            </summary>
+        </member>
+        <member name="F:ParagonForge.PiggInterface.TextureExtractType.Texture">
+            <summary>Extract texture file as a texture.</summary>
+        </member>
+        <member name="F:ParagonForge.PiggInterface.TextureExtractType.Original">
+            <summary>Extract texture file as original image type.</summary>
+        </member>
+        <member name="F:ParagonForge.PiggInterface.TextureExtractType.Png">
+            <summary>Extract texture file as PNG image.</summary>
+        </member>
+        <member name="F:ParagonForge.PiggInterface.TextureExtractType.Jpeg">
+            <summary>Extract texture file as JPG image.</summary>
+        </member>
+        <member name="F:ParagonForge.PiggInterface.TextureExtractType.Bmp">
+            <summary>Extract texture file as BMP image.</summary>
+        </member>
+        <member name="F:ParagonForge.PiggInterface.TextureExtractType.Tiff">
+            <summary>Extract texture file as TIFF image.</summary>
+        </member>
+        <member name="F:ParagonForge.PiggInterface.TextureExtractType.Gif">
+            <summary>Extract texture file as GIF image.</summary>
+        </member>
+        <member name="T:ParagonForge.PiggInterface.NodeExtractType">
+            <summary>
+            Indicates whether or not to extract a node using the full path of the
+            node from the root or just the node.
+            </summary>
+        </member>
+        <member name="F:ParagonForge.PiggInterface.NodeExtractType.FullPath">
+            <summary>Recreate the full node path.</summary>
+        </member>
+        <member name="F:ParagonForge.PiggInterface.NodeExtractType.Relative">
+            <summary>Only create the relative path.</summary>
+        </member>
+    </members>
+</doc>

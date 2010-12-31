@@ -1,0 +1,667 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CohInfo</name>
+    </assembly>
+    <members>
+        <member name="T:ParagonForge.InstallationType">
+            <summary>
+            The type of installation this interface represents.
+            </summary>
+            <seealso cref="P:ParagonForge.CohInfo.Installation"/>
+        </member>
+        <member name="F:ParagonForge.InstallationType.Live">
+            <summary>An instance of the live copy of the game.</summary>
+        </member>
+        <member name="F:ParagonForge.InstallationType.Test">
+            <summary>An instance of the test copy of the game.</summary>
+        </member>
+        <member name="T:ParagonForge.AudioType">
+            <summary>
+            The mechanism used to render game audio.
+            </summary>
+            <seealso cref="P:ParagonForge.CohInfo.AudioRender"/>
+        </member>
+        <member name="F:ParagonForge.AudioType.Hardware">
+            <summary>Use the hardware (sound card) to render audio.</summary>
+        </member>
+        <member name="F:ParagonForge.AudioType.Software">
+            <summary>Use software to render audio.</summary>
+        </member>
+        <member name="T:ParagonForge.DisplayModeType">
+            <summary>
+            Whether the game should be displayed in fullscreen or windowed mode.
+            </summary>
+        </member>
+        <member name="F:ParagonForge.DisplayModeType.Fullscreen">
+            <summary>Display the game in fullscreen mode.</summary>
+        </member>
+        <member name="F:ParagonForge.DisplayModeType.Windowed">
+            <summary>Display the game in windowed mode.</summary>
+        </member>
+        <member name="T:ParagonForge.CohInfo">
+            <summary>
+            Represents the configuration of an installation of City of Heroes.
+            </summary>
+        </member>
+        <member name="M:ParagonForge.CohInfo.#ctor">
+            <summary>
+            Creates a default instance of a pigg information class.
+            </summary>
+        </member>
+        <member name="M:ParagonForge.CohInfo.#ctor(ParagonForge.InstallationType)">
+            <summary>
+            Creates a new City of Heroes configuration object based on the
+            installation type specified.
+            </summary>
+            <param name="Installation">The type of installation (live or test)
+            that this object represents.</param>
+        </member>
+        <member name="M:ParagonForge.CohInfo.Initialize(ParagonForge.InstallationType)">
+            <summary>
+            Initializes a new City of Heores configuration object based on the
+            installation type specified.
+            </summary>
+            <param name="Installation">The type of installation (live or test)
+            that this object represents.</param>
+        </member>
+        <member name="M:ParagonForge.CohInfo.GetValue(System.String,Microsoft.Win32.RegistryValueKind)">
+            <summary>
+            Retrieves a setting from the registry.
+            </summary>
+            <param name="Setting">The name of the setting to retrieve.</param>
+            <param name="Type">The type of the setting.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ParagonForge.CohInfo.ReadBoolean(System.String)">
+            <summary>
+            Reads a setting as a string and converts to a boolean value.
+            </summary>
+            <param name="Setting">The setting to read from the City of Heroes
+            registry key.</param>
+            <returns>false if the setting does not exist, is "0", or is a blank
+            string; true if it is anything else.</returns>
+        </member>
+        <member name="M:ParagonForge.CohInfo.ReadDouble(System.String)">
+            <summary>
+            Reads a setting as a string and converts to a float value.
+            </summary>
+            <param name="Setting">The setting to read from the City of Heroes
+            registry key.</param>
+            <returns>Zero if the setting does not exist or is an invalid string,
+            or the value of the setting otherwise.</returns>
+        </member>
+        <member name="M:ParagonForge.CohInfo.ReadInteger(System.String)">
+            <summary>
+            Reads a setting as a string and converts to an integer value.
+            </summary>
+            <param name="Setting">The setting to read from the City of Heroes
+            registry key.</param>
+            <returns>Zero if the setting does not exist or is an invalid string,
+            or the value of the setting otherwise.</returns>
+        </member>
+        <member name="M:ParagonForge.CohInfo.ReadIPAddress(System.String)">
+            <summary>
+            Reads a setting and converts to an IP address if possible.
+            </summary>
+            <param name="Setting">The setting to read from the City of Heroes
+            registry key.</param>
+            <returns>Null if the setting cannot be read or converted to an IP
+            address, or the value of the setting otherwise.</returns>
+        </member>
+        <member name="M:ParagonForge.CohInfo.ReadUri(System.String)">
+            <summary>
+            Reads a setting as a string and converts to a Uri value.
+            </summary>
+            <param name="Setting">The setting to read from the City of Heroes
+            registry key.</param>
+            <returns>Null if the setting cannot be read or converted to a Uri, or
+            the value of the setting otherwise.</returns>
+        </member>
+        <member name="M:ParagonForge.CohInfo.ReadVersion(System.String)">
+            <summary>
+            Reads a setting as a string, parses it, and converts it to a Version
+            value.
+            </summary>
+            <param name="Setting">The setting to read from the City of Heroes
+            registry key.</param>
+            <returns>Null if the setting cannot be read or converted to a Version,
+            or the value of the setting otherwise.</returns>
+            <remarks>The version is parsed according to the format of the version
+            that has been used in the latest versions of the client.</remarks>
+        </member>
+        <member name="M:ParagonForge.CohInfo.ReadString(System.String)">
+            <summary>
+            Reads a setting as a string and returns it.
+            </summary>
+            <param name="Setting">The setting to read from the City of Heroes
+            registry key.</param>
+            <returns>A blank string if the setting is invalid, or the value of the
+            setting otherwise.</returns>
+            <remarks>"Why have a function that reads a string and returns it
+            instead of just reading it directly?" you ask?  Two reasons.  First,
+            GetValue returns an object and this encapsulates it to make it easier
+            to quickly snag the string without having to cast it.  Second, it can
+            check for null values (i.e. non-existent settings) and return a blank
+            string instead.</remarks>
+        </member>
+        <member name="M:ParagonForge.CohInfo.WriteBoolean(System.String,System.Boolean)">
+            <summary>
+            Writes a boolean value to the registry.
+            </summary>
+            <param name="Setting">The setting to write to the City of Heroes
+            registry key.</param>
+            <param name="Value">The value to write to the setting.</param>
+            <returns>True if the write was successful, false if it failed.
+            </returns>
+            <remarks>Booleans are converted to strings as "0" for false and "1"
+            for true.  They are converted to integral types (DWord and QWord) as
+            0 for false and 1 for true.</remarks>
+        </member>
+        <member name="M:ParagonForge.CohInfo.WriteInteger(System.String,System.Int32)">
+            <summary>
+            Writes an integer to the registry.
+            </summary>
+            <param name="Setting">The setting to write to the City of Heroes
+            registry key.</param>
+            <param name="Value">The value to write to the setting.</param>
+            <returns>True if the write was successful, false if it failed.
+            </returns>
+            <remarks>Integers can be written to almost any registry setting type.
+            If needed, it is converted to a string or QWord.  If the type is of a
+            kind that doesn't support integers, it will fail and return false.
+            </remarks>
+        </member>
+        <member name="M:ParagonForge.CohInfo.WriteIPAddress(System.String,System.Net.IPAddress)">
+            <summary>
+            Writes an IP address to the registry.
+            </summary>
+            <param name="Setting">The setting to write to the City of Heroes
+            registry key.</param>
+            <param name="Value">The value to write to the setting.</param>
+            <returns>True if the write was successful, false if it failed.
+            </returns>
+            <remarks>IP addresses are converted to strings or longs as
+            appropriate.</remarks>
+        </member>
+        <member name="M:ParagonForge.CohInfo.WriteUri(System.String,System.Uri)">
+            <summary>
+            Writes a Uri to the registry.
+            </summary>
+            <param name="Setting">The setting to write to the City of Heroes
+            registry key.</param>
+            <param name="Value">The value to write to the setting.</param>
+            <returns>True if the write was successful, false if it failed.
+            </returns>
+        </member>
+        <member name="M:ParagonForge.CohInfo.WriteDouble(System.String,System.Double)">
+            <summary>
+            Writes a double to the registry.
+            </summary>
+            <param name="Setting">The setting to write to the City of Heroes
+            registry key.</param>
+            <param name="Value">The value to write to the setting.</param>
+            <returns>True if the write was successful, false if it failed.
+            </returns>
+            <remarks>Doubles are written with precision of six decimal places,
+            which is the City of Heroes registry settings standard.  If we try to
+            write a double to an existing integral setting (DWord or QWord), we'll
+            try to convert it.  If it is in range of that type, we'll truncate and
+            save it.</remarks>
+        </member>
+        <member name="M:ParagonForge.CohInfo.WriteString(System.String,System.String)">
+            <summary>
+            Writes a string to the registry.
+            </summary>
+            <param name="Setting">The setting to write to the City of Heroes
+            registry key.</param>
+            <param name="Value">The value to write to the setting.</param>
+            <returns>True if the write was successful, false if it failed.
+            </returns>
+            <remarks>This function may fail if a string is attempted to be written
+            to a setting that already exists and is not a string type.  In such a
+            case, we'll try to convert it, but if we can't, we will not overwrite
+            a setting and return false.</remarks>
+        </member>
+        <member name="M:ParagonForge.CohInfo.WriteVersion(System.String,System.Version)">
+            <summary>
+            Writes a version structure to the registry.
+            </summary>
+            <param name="Setting">The setting to write to the City of Heroes
+            registry key.</param>
+            <param name="Value">The value to write to the setting.</param>
+            <returns>True if the write was successful, false if it failed.
+            </returns>
+        </member>
+        <member name="M:ParagonForge.CohInfo.VersionToDate(System.Version)">
+            <summary>
+            Returns a DateTime structure that represents the date of a City of
+            Heroes client version.
+            </summary>
+            <param name="Value">The version to parse for a date.</param>
+            <returns>A DateTime structure representing the date of the version, or
+            null if the version number is unable to be parsed for a date.
+            </returns>
+        </member>
+        <member name="M:ParagonForge.CohInfo.VersionToString(System.Version)">
+            <summary>
+            Converts a Version structure to a City of Heroes version string.
+            </summary>
+            <param name="Value">The Version structure to convert.</param>
+            <returns>A City of Heroes version string.</returns>
+        </member>
+        <member name="M:ParagonForge.CohInfo.SetValue(System.String,System.String)">
+            <summary>
+            Sets a setting in the registry.
+            </summary>
+            <param name="Setting">Setting to set.</param>
+            <param name="Value">Value to which the setting will be set.</param>
+            <remarks>In this version of the SetValue function, the setting will
+            be set to a string value.</remarks>
+        </member>
+        <member name="M:ParagonForge.CohInfo.SetValue(System.String,System.Object,Microsoft.Win32.RegistryValueKind)">
+            <summary>
+            Sets a setting in the registry.
+            </summary>
+            <param name="Setting">Setting to set.</param>
+            <param name="Value">Value to which the setting will be set.</param>
+            <param name="Type">Type of the value that will be set.</param>
+        </member>
+        <member name="M:ParagonForge.CohInfo.ToString">
+            <summary>
+            Converts the CohInfo object to a listing of all game settings.
+            </summary>
+            <returns>A human-readable listing of the City of Heroes game settings.
+            </returns>
+        </member>
+        <member name="P:ParagonForge.CohInfo.CohRegistryKey">
+            <summary>
+            Registry key for the installation type.  If installation type does
+            not exist in the registry, returns null.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.Installation">
+            <summary>
+            The type of installation pigg info object represents.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.AccountName">
+            <summary>
+            The default account name that will be presented to the user upon
+            launch of the City of Heroes client.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.AgeiaEnabled">
+            <summary>
+            Whether or not the Ageia functionality is enabled.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.AntiAlias">
+            <summary>
+            The anti-aliasing setting.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.AuthenticationServer">
+            <summary>
+            The IP address of the authentication server.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.BloomMagnitude">
+            <summary>
+            The bloom magnitude setting.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.CharacterMipLevel">
+            <summary>
+            The character mip level setting.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.CurrentVersion">
+            <summary>
+            The current version of the City of Heroes client, or null if the
+            current version cannot be determined.
+            </summary>
+            <remarks>
+              The version number is currently given in the format:
+                (major).(build_date).(minor)T(revision)
+            
+              At various times in the past, the minor version number and/or the
+              revision have been omitted.  If that is the case, this property
+              reports any omitted components of the version number as zero (0).
+            
+              At the very least in order to return a valid version number the
+              format will need to be (major).(minor).
+            </remarks>
+        </member>
+        <member name="P:ParagonForge.CohInfo.DatabaseServer">
+            <summary>
+            The database server used by the City of Heroes client.  (Currently,
+            this value is always blank.)
+            </summary>
+            <remarks>I am guessing that the devs can set this value manually in
+            order to run the client against alternate builds of the server.
+            I suspect (but can't prove) that unless you have your own CoH server
+            up and running, this value should always be left to a blank string.
+            I'd also guess that this should be an IP address, but since I can't
+            tell without it actually being populated, I'm not going to assume
+            that.</remarks>
+        </member>
+        <member name="P:ParagonForge.CohInfo.AdsEnabled">
+            <summary>
+            Whether or not in-game ads on posters and billboards are disabled.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.DepthOfFieldMagnitude">
+            <summary>
+            The depth of field magnitude setting.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.SaveAccountName">
+            <summary>
+            Whether or not the account name is automatically populated when the
+            City of Heroes client launches.
+            </summary>
+            <remarks>Note that the registry entry indicates whether the account
+            name should NOT be remembered, but this property is an affirmative
+            one (DO remember it).  Thus the 0 = true, 1 = false logic in this
+            property.)</remarks>
+        </member>
+        <member name="P:ParagonForge.CohInfo.ThreeDSoundEnabled">
+            <summary>
+            Whether 3D sound is enabled in the client.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.VertexBufferObjectsEnabled">
+            <summary>
+            Whether OpenGL vertex buffer objects are enabled in the client.
+            </summary>
+            <remarks>http://en.wikipedia.org/wiki/Vertex_Buffer_Object</remarks>
+        </member>
+        <member name="P:ParagonForge.CohInfo.EntityDetailLevel">
+            <summary>
+            The entitiy detail level setting.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.CompatibleCursors">
+            <summary>
+            Whether or not compatible cursors are enabled.
+            </summary>
+            <remarks>Note that the registry entry indicates whether compatible
+            cursors are NOT enabled, but this property is an affirmative one
+            (compatible cursors ARE enabled).  Thus the 0 = true, 1 = false logic
+            in this property.)</remarks>
+        </member>
+        <member name="P:ParagonForge.CohInfo.AudioRender">
+            <summary>
+            Whether the client uses software or hardware audio rendering.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.SoftwareAudio">
+            <summary>
+            Whether the client uses software audio rendering.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.HardwareAudio">
+            <summary>
+            Whether the client uses hardware audio rendering.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.DisplayMode">
+            <summary>
+            Whether the game is displayed in fullscreen or windowed mode.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.Fullscreen">
+            <summary>
+            Whether the game is is displayed in fullscreen mode.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.Windowed">
+            <summary>
+            Whether the game is displayed in windowed mode.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.SoundEffectsVolume">
+            <summary>
+            The sound effects volume setting.
+            </summary>
+            <remarks>The value of the sound effects volume setting is between
+            0 and 1.  So for example, if the sound effects volume is set to 27%,
+            this value will be 0.270000.</remarks>
+        </member>
+        <member name="P:ParagonForge.CohInfo.Gamma">
+            <summary>
+            The gamma setting.
+            </summary>
+            <remarks>http://en.wikipedia.org/wiki/Gamma_correction</remarks>
+        </member>
+        <member name="P:ParagonForge.CohInfo.GraphicsQuality">
+            <summary>
+            The graphics quality setting.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.InstallationDirectory">
+            <summary>
+            The location where City of Heroes is installed.
+            </summary>
+            <remarks>This is the installation directory according to the registry
+            entry.  This directory should be checked for existence before used.
+            </remarks>
+        </member>
+        <member name="P:ParagonForge.CohInfo.InstallerLanguage">
+            <summary>
+            The langauge of the installer.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.LoadTip">
+            <summary>
+            The load tip number to show on the next load screen.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.Locale">
+            <summary>
+            The locale of the game.
+            </summary>
+            <remarks>I have only played the English-language version of the game,
+            so this value is always zero to me.  I believe it would change based
+            on other language versions of the game.</remarks>
+        </member>
+        <member name="P:ParagonForge.CohInfo.PatchURL">
+            <summary>
+            URL of page displayed when a downloadable patch is available.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.Maximized">
+            <summary>
+            Whether the window is maximized in windowed mode.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.MaxParticleFill">
+            <summary>
+            The maximum particle fill setting.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.MaxParticleCount">
+            <summary>
+            The maximum particle count setting.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.MipLevel">
+            <summary>
+            The mip level setting.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.MusicVolume">
+            <summary>
+            The music volume setting.
+            </summary>
+            <remarks>The value of the music volume setting is between 0 and 1.
+            So for example, if the music volume is set to 27%, this value will be
+            0.270000.</remarks>
+        </member>
+        <member name="P:ParagonForge.CohInfo.PhysicsQuality">
+            <summary>
+            The physics quality setting.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.RefreshRate">
+            <summary>
+            The refresh rate setting.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.RenderScaleX">
+            <summary>
+            The x-axis rendering scale setting.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.RenderScaleY">
+            <summary>
+            The y-axis rendering scale setting.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.Width">
+            <summary>
+            The width of the game client window.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.Height">
+            <summary>
+            The height of the game client window.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.Size">
+            <summary>
+            The (height, width) size of the game client.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.X">
+            <summary>
+            The x-coordinate location of the game client when the game is running
+            in windowed mode.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.Y">
+            <summary>
+            The y-coordinate location of the game client when the game is running
+            in windowed mode.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.Location">
+            <summary>
+            The (x, y) location of the game client when the game is running in
+            windowed mode.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.ShaderDetail">
+            <summary>
+            The shader detail setting.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.ShadowsEnabled">
+            <summary>
+            Whether shadows will be shown or not.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.AdvancedGraphicsEnabled">
+            <summary>
+            Whether advanced graphics settings are enabled or not.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.CloseEffectsEnabled">
+            <summary>
+            Whether or not one's avatar's graphical power effects will be shown
+            when the camera is close to the avatar.
+            </summary>
+            <remarks>Note that the registry setting is a negative (suppress) while
+            this property is a positive (enabled), thus the 0 = true, 1 = false
+            logic.</remarks>
+        </member>
+        <member name="P:ParagonForge.CohInfo.CloseEffectsDistance">
+            <summary>
+            The distance at which the CloseEffectsEnabled setting will be applied.
+            A distance of zero (0) suppresses the graphical effects only when in
+            first-person view mode.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.EffectsEnabled">
+            <summary>
+            Whether or not to suppress graphical effects of third-party avatars.
+            </summary>
+            <remarks>Note that the registry setting is a negative (suppress) while
+            this property is a positive (enabled), thus the 0 = true, 1 = false
+            logic.</remarks>
+        </member>
+        <member name="P:ParagonForge.CohInfo.TexAniso">
+            <summary>
+            The texAniso setting in the registry.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.TexLodBias">
+            <summary>
+            The texLodBias setting in the registry.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.TransferRate">
+            <summary>
+            The TransferRate setting in the registry.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.BloomEnabled">
+            <summary>
+            Whether or not bloom effects are enabled.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.DesaturateEnabled">
+            <summary>
+            Whether or not desaturation effects are enabled.
+            </summary>
+            <remarks>The desaturation effect is the effect seen when first
+            entering an Ouroboros mission and when it is completed, when the
+            screen fades in and out of full color.</remarks>
+        </member>
+        <member name="P:ParagonForge.CohInfo.DepthOfFieldEnabled">
+            <summary>
+            Whehter or not depth of field effects are enabled.
+            </summary>
+            <remarks>Depth of field effects are the effects seen when game objects
+            at a distance are blurry.  It is intended to simulate the
+            three-dimensional of objects closer up being in focus.</remarks>
+        </member>
+        <member name="P:ParagonForge.CohInfo.RenderScaleEnabled">
+            <summary>
+            Whether or not the render scale effects are enabled.
+            </summary>
+            <remarks>The render scale properties allow the game to render the
+            graphics on the x-axis and the y-axis at independent resolutions.
+            These settings are not available to change via the in-game GUI.
+            </remarks>
+        </member>
+        <member name="P:ParagonForge.CohInfo.VerticalSyncEnabled">
+            <summary>
+            Whether or not vertical synchronization is enabled.
+            </summary>
+            <remarks>http://en.wikipedia.org/wiki/Vertical_sync</remarks>
+        </member>
+        <member name="P:ParagonForge.CohInfo.WaterEffects">
+            <summary>
+            The quality of water effects.  A value of zero indicates that water
+            effects are disabled.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.LauncherURL">
+            <summary>
+            URL of page displayed inside the launcher.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.WorldDetail">
+            <summary>
+            The world detail level setting.
+            </summary>
+        </member>
+        <member name="P:ParagonForge.CohInfo.Test">
+            <summary>
+            Delete me before production.  :-)
+            </summary>
+        </member>
+    </members>
+</doc>

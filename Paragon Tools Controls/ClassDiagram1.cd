@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="Paragon_Tools_Controls.ImageViewer">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>ImageViewer.cs</FileName>
+      <HashCode>gAAAQFAAACCAAQAAAACABAECAgCgABAAAAAQAQAAAgA=</HashCode>
+    </TypeIdentifier>
+    <NestedTypes>
+      <Enum Name="Paragon_Tools_Controls.ImageViewer.Zoom" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ImageViewer.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Enum Name="Paragon_Tools_Controls.ImageViewer.MouseState" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>ImageViewer.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+  </Class>
+</ClassDiagram>

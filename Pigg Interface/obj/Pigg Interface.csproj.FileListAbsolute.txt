@@ -1,0 +1,42 @@
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\PiggInterface\bin\Release\PiggInterface.dll
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\PiggInterface\bin\Release\PiggInterface.pdb
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\PiggInterface\bin\Release\CoHInfo.dll
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\PiggInterface\bin\Release\CoHInfo.pdb
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\PiggInterface\obj\Release\ResolveAssemblyReference.cache
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\PiggInterface\obj\Release\PiggInterface.dll
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\PiggInterface\obj\Release\PiggInterface.pdb
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\PiggInterface\bin\Release\CoHInfo.xml
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\PiggInterface\bin\Release\PiggInterface.xml
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\Pigg Interface\bin\Release\PiggInterface.dll
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\Pigg Interface\bin\Release\PiggInterface.pdb
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\Pigg Interface\bin\Release\CohInfo.dll
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\Pigg Interface\bin\Release\OggVorbisDecoder.dll
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\Pigg Interface\bin\Release\CohInfo.pdb
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\Pigg Interface\bin\Release\CohInfo.xml
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\Pigg Interface\obj\Release\ResolveAssemblyReference.cache
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\Pigg Interface\obj\Release\PiggInterface.dll
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\Pigg Interface\obj\Release\PiggInterface.pdb
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\Pigg Interface\bin\Release\DdsSquish.dll
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\Pigg Interface\bin\Release\DdsSquish.pdb
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\Pigg Interface\bin\Debug\PiggInterface.dll
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\Pigg Interface\bin\Debug\PiggInterface.pdb
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\Pigg Interface\bin\Debug\CohInfo.dll
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\Pigg Interface\bin\Debug\DdsSquish.dll
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\Pigg Interface\bin\Debug\OggVorbisDecoder.dll
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\Pigg Interface\bin\Debug\CohInfo.pdb
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\Pigg Interface\bin\Debug\CohInfo.xml
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\Pigg Interface\bin\Debug\DdsSquish.pdb
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\Pigg Interface\obj\Debug\ResolveAssemblyReference.cache
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\Pigg Interface\obj\Debug\PiggInterface.dll
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\Pigg Interface\obj\Debug\PiggInterface.pdb
+E:\Docs\Development\svn\piggtools\Pigg Interface\bin\Debug\PiggInterface.dll
+E:\Docs\Development\svn\piggtools\Pigg Interface\bin\Debug\PiggInterface.pdb
+E:\Docs\Development\svn\piggtools\Pigg Interface\bin\Debug\CohInfo.dll
+E:\Docs\Development\svn\piggtools\Pigg Interface\bin\Debug\DdsSquish.dll
+E:\Docs\Development\svn\piggtools\Pigg Interface\bin\Debug\OggVorbisDecoder.dll
+E:\Docs\Development\svn\piggtools\Pigg Interface\bin\Debug\CohInfo.pdb
+E:\Docs\Development\svn\piggtools\Pigg Interface\bin\Debug\CohInfo.xml
+E:\Docs\Development\svn\piggtools\Pigg Interface\bin\Debug\DdsSquish.pdb
+E:\Docs\Development\svn\piggtools\Pigg Interface\obj\Debug\ResolveAssemblyReference.cache
+E:\Docs\Development\svn\piggtools\Pigg Interface\obj\Debug\PiggInterface.dll
+E:\Docs\Development\svn\piggtools\Pigg Interface\obj\Debug\PiggInterface.pdb

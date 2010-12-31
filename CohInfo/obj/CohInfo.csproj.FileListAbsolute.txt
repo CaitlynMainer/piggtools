@@ -1,0 +1,15 @@
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\CohInfo\bin\Release\CohInfo.dll
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\CohInfo\bin\Release\CohInfo.pdb
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\CohInfo\obj\Release\ResolveAssemblyReference.cache
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\CohInfo\obj\Release\CohInfo.dll
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\CohInfo\obj\Release\CohInfo.pdb
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\CohInfo\bin\Debug\CohInfo.dll
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\CohInfo\bin\Debug\CohInfo.pdb
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\CohInfo\obj\Debug\ResolveAssemblyReference.cache
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\CohInfo\obj\Debug\CohInfo.dll
+E:\Docs\Visual Studio 2005\Projects\Paragon Tools\CohInfo\obj\Debug\CohInfo.pdb
+E:\Docs\Development\svn\piggtools\CohInfo\bin\Debug\CohInfo.dll
+E:\Docs\Development\svn\piggtools\CohInfo\bin\Debug\CohInfo.pdb
+E:\Docs\Development\svn\piggtools\CohInfo\obj\Debug\ResolveAssemblyReference.cache
+E:\Docs\Development\svn\piggtools\CohInfo\obj\Debug\CohInfo.dll
+E:\Docs\Development\svn\piggtools\CohInfo\obj\Debug\CohInfo.pdb
